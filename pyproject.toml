@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "api-modelo-ml"
+version = "0.1.0"
+description = "Proyecto base para desplegar un modelo de Machine Learning (.pkl) como API REST con FastAPI usando arquitectura hexagonal."
+readme = "README.md"
+requires-python = ">=3.10"
+keywords = ["fastapi", "machine-learning", "scikit-learn", "uvicorn", "hexagonal-architecture"]
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.7.0",
+    "scikit-learn>=1.4.0",
+    "joblib>=1.3.0",
+    "pandas>=2.0.0",
+    "numpy>=1.26.0",
+]
+
+[project.optional-dependencies]
+# Pruebas automatizadas.
+dev = [
+    "pytest>=8.0.0",
+    "httpx>=0.27.0",
+]
+# Cuadernos de analisis descriptivo y entrenamiento.
+notebooks = [
+    "jupyterlab>=4.0.0",
+    "matplotlib>=3.8.0",
+]
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

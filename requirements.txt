@@ -1,0 +1,17 @@
+# Dependencias de ejecucion (produccion / despliegue).
+#
+#   pip install -r requirements.txt
+#
+# Para desarrollo local (pruebas + cuadernos) instala ademas los extras:
+#
+#   pip install -e ".[dev,notebooks]"
+#
+# IMPORTANTE: fija la misma version de scikit-learn que se uso al entrenar el
+# modelo. Un .pkl generado con otra version puede no cargarse.
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+pydantic>=2.7.0
+scikit-learn>=1.4.0
+joblib>=1.3.0
+pandas>=2.0.0
+numpy>=1.26.0
